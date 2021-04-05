@@ -6,7 +6,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./input.component.sass']
 })
 export class InputComponent implements OnInit {
-  @Output() addToDo = new EventEmitter<{text: string}>()
+  inputText: string = "";
+
+  @Output() sendItem = new EventEmitter<{text: string}>()
   constructor() { }
 
   ngOnInit(): void {
@@ -15,8 +17,9 @@ export class InputComponent implements OnInit {
   addToList(textField:HTMLInputElement){
     let input = textField.value;
     console.log("addToList: ", input)
-    this.addToDo.emit({text: input});
-
+    this.sendItem.emit({text: input});
+    
+    textField.value = "";
 
   }
 }

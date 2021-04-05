@@ -2,8 +2,10 @@
   <h5> <small>{{title}}</small> </h5>
   <div class="toDoApp">
     <h5 class="toDoApp_title text-monospace">Add new things To Do:</h5>
-    <app-input class="toDoApp_input" (addToDo)="addToDoItem($event)"></app-input>
-    <app-list class="toDoApp_list"></app-list>
+    <app-input class="toDoApp_input" (sendItem)="sendItem($event)"></app-input>
+    <div class="toDoApp_list" >
+      <app-list-item *ngFor="let item of listItems" [listItem]="item" ></app-list-item>
+    </div>
   </div>
 </div>
 
