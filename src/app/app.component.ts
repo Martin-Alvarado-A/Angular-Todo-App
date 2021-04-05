@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-Todo-App';
+  listItems = [];
+  
+
+  addToDoItem(input: {text:string}){
+    console.log("addToDoItem", input.text)
+    
+
+  }
 }
