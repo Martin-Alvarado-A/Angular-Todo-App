@@ -1,26 +1,24 @@
-<a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" draggable="false">
-  <!-- <span >
-    checkIcon
-  </span> -->
-  <span contenteditable="true" #inputText
+<a href="#" 
+  class="list_item list-group-item list-group-item-action" 
+  [class.checked]="listItem.checked"
+  (click)="onCompleteItem()"
+  draggable="false"
+>
+  <span class="list_item__checkBox" >
+    <span>{{listItem.checked ? "&#9745;" : "&#9744;"}}</span>
+  </span>
+  <span class="list_item__title" 
+    contenteditable="true" 
+    #inputText
     (blur)="onTitleChange(inputText.innerText)"
   >
     {{listItem.title}}
   </span>
 
-  <div class="btn-group btn-group-sm" role="group">
-    <button class="btn btn-danger" type="button"
-      (click)="onDeleteItem()"
-    >
+  <div class="list_item__actions btn-group btn-group-sm" role="group">
+    <button class="btn btn-danger" type="button" (click)="onDeleteItem()" >
       Delete
     </button>
-
-    <!-- <button class="btn btn-success" type="button"
-      (click)="onCompleteItem()"
-    >
-      Complete
-    </button> -->
-
   </div>
 
 </a>

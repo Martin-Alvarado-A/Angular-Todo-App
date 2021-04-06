@@ -4,7 +4,7 @@ import { ListItem } from 'src/app/shared/list-item.model';
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.sass']
+  styleUrls: ['../../app.component.sass']
 })
 export class ListItemComponent implements OnInit {
   @Input() listItem: ListItem = new ListItem("", "");
@@ -30,8 +30,10 @@ export class ListItemComponent implements OnInit {
   }
 
   onCompleteItem(){
-    console.log("onCompleteItem", this.listItem.id);
-    
+    let titleSelected = document.getElementsByClassName("list_item__title")[0] == document.activeElement;
+    if ( titleSelected ) return;
+
+    console.log("onCompleteItem");
     this.completeItem.emit({itemId: this.listItem.id});
   }
 

@@ -29,8 +29,9 @@ export class AppComponent {
     this.listItems = this.listItems.filter(item => item.id != toDelete.itemId);
   }
 
-  completeItem(toScratch: {itemId: string}){
-    console.log("completeItem: ", toScratch);
+  completeItem(toCheck: {itemId: string}){
+    console.log("completeItem: ", toCheck);
 
+    this.listItems.find(item => item.id === toCheck.itemId)?.toogleCheck();
   }
 }

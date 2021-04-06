@@ -45,12 +45,31 @@ $reactPurleShadow: #40216f
 
 
 
-.list-group-item-action 
-  min-height: 57px
 
 
-a 
-  span
+
+
+
+
+
+.list_item
+  min-height: 70px
+  display: grid
+  grid-template-columns: 1fr 9fr 2fr
+  grid-gap: 0 1rem
+  grid-template-areas: "Box Title Actions"
+
+  
+
+  .list_item__checkBox
+    grid-area: Box
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 1.25rem
+
+  .list_item__title
+    grid-area: Title
     margin-top: 3px
     padding: 2px
     &:hover 
@@ -62,20 +81,27 @@ a
         background-color: white
         padding-bottom: 0px
         border-bottom: 2px solid $reactPurle
-     
   
-  .btn-group 
+  .list_item__actions
+    grid-area: Actions
     display: none
   
-  
+  &.checked
+    .list_item__checkBox
+      font-size: .83rem
+
+    .list_item__title
+      text-decoration: line-through green
+      text-decoration-color: green
+
   &:hover 
-    span 
+    .list_item__title 
       background-color: white
       padding-bottom: 0px
       border-bottom: 2px solid $reactPurle
     
-    .btn-group 
-      display: block
+    .list_item__actions
+      display: flex
     
     
 
