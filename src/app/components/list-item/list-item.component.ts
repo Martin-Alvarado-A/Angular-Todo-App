@@ -38,10 +38,9 @@ export class ListItemComponent implements OnInit {
 
   onCompleteItem(){
     console.log(`${this.logComponent} > onCompleteItem`)
-
-    let titleSelected = document.getElementsByClassName("list_item__title")[0] == document.activeElement;
-    if ( titleSelected ) return;
-
+    
+    let selectedElement = document.querySelector(`[list-item__title-id='${this.listItem.id}']`);
+    if ( selectedElement == document.activeElement ) return;
     
     this.completeItem.emit({itemId: this.listItem.id});
   }
