@@ -12,11 +12,11 @@ This list performs the four basic functions of persistent storage CRUD (create, 
 I will be updating it at a later time to add simple testing as well.
 
 <div style="display:flex;">
-  <img src="https://github.com/Martin-Alvarado-A/Angular-Todo-App/blob/main/src/assets/ToDoApp1.PNG" alt="ToDo App Create" width="400">
+  <img src="https://github.com/Martin-Alvarado-A/Angular-Todo-App/blob/main/src/assets/ToDoApp1.PNG" alt="ToDo App Create" width="500">
 
-  <img src="https://github.com/Martin-Alvarado-A/Angular-Todo-App/blob/main/src/assets/ToDoApp2.PNG" alt="ToDo App Update" width="400">
+  <img src="https://github.com/Martin-Alvarado-A/Angular-Todo-App/blob/main/src/assets/ToDoApp2.PNG" alt="ToDo App Update" width="500">
 
-  <img src="https://github.com/Martin-Alvarado-A/Angular-Todo-App/blob/main/src/assets/ToDoApp3.PNG" alt="ToDo App Check Done" width="400">
+  <img src="https://github.com/Martin-Alvarado-A/Angular-Todo-App/blob/main/src/assets/ToDoApp3.PNG" alt="ToDo App Check Done" width="500">
 </div>
 
 
