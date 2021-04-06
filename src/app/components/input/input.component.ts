@@ -6,20 +6,22 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['../../app.component.sass']
 })
 export class InputComponent implements OnInit {
+  logComponent = "InputComponent";
   inputText: string = "";
+  @Output() passItemTitle = new EventEmitter<{text: string}>()
 
-  @Output() sendItem = new EventEmitter<{text: string}>()
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  addToList(textField:HTMLInputElement){
+  itemTitle(textField: HTMLInputElement){
+    console.log(`${this.logComponent} > itemTitle`, textField.value)
+
     let input = textField.value;
-    console.log("addToList: ", input)
-    this.sendItem.emit({text: input});
+    if(input === "") return;
+
+    this.passItemTitle.emit({text: input});
     
     textField.value = "";
-
   }
 }

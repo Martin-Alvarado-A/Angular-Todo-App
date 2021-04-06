@@ -1,8 +1,11 @@
 <div class="app">
   <div class="app__title"> <small>{{title}}</small> </div>
   <div class="toDoApp">
+    
     <h5 class="toDoApp__title text-monospace">Add new things To Do:</h5>
-    <app-input class="toDoApp__input" (sendItem)="sendItem($event)"></app-input>
+    
+    <app-input class="toDoApp__input" (passItemTitle)="createNewItem($event)"></app-input>
+    
     <div class="toDoApp__list" *ngIf="listItems.length; else elseBlock">
       <hr>
       <span class="toDoApp__list__title text-monospace">Things to do:</span>

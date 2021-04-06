@@ -1,10 +1,22 @@
-$reactPurle: #764abc
-$reactPurleShadow: #40216f
-  
+$angularRed: #dd0031
+$angularRedRGBa: rgba(221, 0, 49, .25)
+$angularRedShadow: #c3002f
+$angularRedShadowRGBa: rgba(195, 0, 47, .25)
+$mediaXlWidth: 1680px
+$mediaLgWidth: 1024px
+
 .app
   padding: .5rem 2rem
   background-color: rgba(248, 250, 250, 1)
   min-height: 100%
+  
+@media (min-width: $mediaLgWidth) 
+  .app
+    padding: .5rem 10rem
+
+@media (min-width: $mediaXlWidth) 
+  .app
+    padding: .5rem 20rem
 
 .app__title
   text-align: center
@@ -43,23 +55,12 @@ $reactPurleShadow: #40216f
     margin-bottom: 0
     text-align: center
 
-
-
-
-
-
-
-
-
-
 .list_item
   min-height: 70px
   display: grid
   grid-template-columns: 1fr 9fr 2fr
   grid-gap: 0 1rem
   grid-template-areas: "Box Title Actions"
-
-  
 
   .list_item__checkBox
     grid-area: Box
@@ -80,7 +81,7 @@ $reactPurleShadow: #40216f
         outline: none
         background-color: white
         padding-bottom: 0px
-        border-bottom: 2px solid $reactPurle
+        border-bottom: 2px solid $angularRed
   
   .list_item__actions
     grid-area: Actions
@@ -98,48 +99,54 @@ $reactPurleShadow: #40216f
     .list_item__title 
       background-color: white
       padding-bottom: 0px
-      border-bottom: 2px solid $reactPurle
+      border-bottom: 2px solid $angularRed
     
     .list_item__actions
       display: flex
-    
-    
 
 
+// Bootsrtap Theme override
+
+.form-control
+  border-color: $angularRedShadow
+
+  &:focus 
+    border-color: $angularRedShadow
+    box-shadow: 0 0 0 0.2rem $angularRedRGBa
 
 .btn-group
   box-shadow: 2px 3px 5px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15)
   border-radius: .4em
 
-
-// Bootsrtap Theme override
 .btn-primary
-  background-color: $reactPurle
-  border-color: $reactPurle
+  background-color: $angularRed
+  border-color: $angularRedShadow
+
   &:hover 
-    background-color: $reactPurleShadow
-    border-color: $reactPurleShadow
+    background-color: $angularRed
+    border-color: $angularRedShadow
+  
+  &:not(:disabled):not(.disabled):active
+    background-color: $angularRedShadow
+    border-color: $angularRedShadow
+    box-shadow: 0 0 0 0.2rem $angularRedShadowRGBa
   
   &:focus 
-    box-shadow: 0 0 0 0.2rem rgba(118, 74, 188,.25)
-  
-
-
-.form-control
-  border-color: $reactPurle
-  &:focus 
-    border-color: $reactPurle
-    box-shadow: 0 0 0 0.2rem rgba(118, 74, 188,.25)
-  
-
+    box-shadow: 0 0 0 0.2rem $angularRedRGBa
 
 .btn-outline-primary
-  color: $reactPurle
-  border-color: $reactPurle
-  &:hover 
-    background-color: $reactPurleShadow
-    border-color: $reactPurleShadow
+  color: $angularRed
+  border-color: $angularRedShadow
+
+  &:hover
+    color: white
+    background-color: $angularRed
+    border-color: $angularRedShadow
   
+  &:not(:disabled):not(.disabled):active
+    background-color: $angularRedShadow
+    border-color: $angularRedShadow
+    box-shadow: 0 0 0 0.2rem $angularRedShadowRGBa
+
   &:focus 
-    box-shadow: 0 0 0 0.2rem rgba(118, 74, 188,.25)
-  
+    box-shadow: 0 0 0 0.2rem $angularRedRGBa

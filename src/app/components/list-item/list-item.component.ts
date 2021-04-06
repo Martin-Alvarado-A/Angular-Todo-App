@@ -7,6 +7,7 @@ import { ListItem } from 'src/app/shared/list-item.model';
   styleUrls: ['../../app.component.sass']
 })
 export class ListItemComponent implements OnInit {
+  logComponent = "ListItemComponent";
   @Input() listItem: ListItem = new ListItem("", "");
   @Output() renameItem = new EventEmitter<{itemId: string, newText: string}>();
   @Output() deleteItem = new EventEmitter<{itemId: string}>();
@@ -16,24 +17,32 @@ export class ListItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onTitleChange(newText: string){
-    console.log("onTitleChange", this.listItem.title)
+  onTitleChange(element: HTMLSpanElement){
+    console.log(`${this.logComponent} > onTitleChange`, element.innerText)
+
+    let newText = element.innerText;
+    if(newText === "") {
+      element.innerText = this.listItem.title; 
+      return;
+    }
 
     this.listItem.title = newText;
     this.renameItem.emit({itemId: this.listItem.id, newText: newText});
   }
 
   onDeleteItem(){
-    console.log("onDeleteItem", this.listItem.id);
+    console.log(`${this.logComponent} > onDeleteItem`, this.listItem.id)
 
     this.deleteItem.emit({itemId: this.listItem.id});
   }
 
   onCompleteItem(){
+    console.log(`${this.logComponent} > onCompleteItem`)
+
     let titleSelected = document.getElementsByClassName("list_item__title")[0] == document.activeElement;
     if ( titleSelected ) return;
 
-    console.log("onCompleteItem");
+    
     this.completeItem.emit({itemId: this.listItem.id});
   }
 
