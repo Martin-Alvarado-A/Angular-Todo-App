@@ -1,1 +1,26 @@
-<p>{{listItem.title}}</p>
+<a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" draggable="false">
+  <!-- <span >
+    checkIcon
+  </span> -->
+  <span contenteditable="true" #inputText
+    (blur)="onTitleChange(inputText.innerText)"
+  >
+    {{listItem.title}}
+  </span>
+
+  <div class="btn-group btn-group-sm" role="group">
+    <button class="btn btn-danger" type="button"
+      (click)="onDeleteItem()"
+    >
+      Delete
+    </button>
+
+    <!-- <button class="btn btn-success" type="button"
+      (click)="onCompleteItem()"
+    >
+      Complete
+    </button> -->
+
+  </div>
+
+</a>

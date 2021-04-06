@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ListItem } from 'src/app/shared/list-item.model';
 
 @Component({
@@ -7,13 +7,32 @@ import { ListItem } from 'src/app/shared/list-item.model';
   styleUrls: ['./list-item.component.sass']
 })
 export class ListItemComponent implements OnInit {
-  @Input() listItem: ListItem;
+  @Input() listItem: ListItem = new ListItem("", "");
+  @Output() renameItem = new EventEmitter<{itemId: string, newText: string}>();
+  @Output() deleteItem = new EventEmitter<{itemId: string}>();
+  @Output() completeItem = new EventEmitter<{itemId: string}>();
+  
+  constructor() {}
 
-  constructor() { 
-    this.listItem = new ListItem("a", "asd");
+  ngOnInit(): void {}
+
+  onTitleChange(newText: string){
+    console.log("onTitleChange", this.listItem.title)
+
+    this.listItem.title = newText;
+    this.renameItem.emit({itemId: this.listItem.id, newText: newText});
   }
 
-  ngOnInit(): void {
+  onDeleteItem(){
+    console.log("onDeleteItem", this.listItem.id);
+
+    this.deleteItem.emit({itemId: this.listItem.id});
+  }
+
+  onCompleteItem(){
+    console.log("onCompleteItem", this.listItem.id);
+    
+    this.completeItem.emit({itemId: this.listItem.id});
   }
 
 }
